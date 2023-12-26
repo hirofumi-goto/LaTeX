@@ -1,4 +1,5 @@
 /.DS_Store
 /.tmp.driveupload
 /.vscode
-/latex-output
+# /latex-output
+latex-output/.DS_Store
