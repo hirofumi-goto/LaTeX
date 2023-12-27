@@ -247,7 +247,7 @@ FRSWによるオフセット成分の除去はおおまかなものであり、�
         観測対象の分子 \\ \hline
     単周波数分光計 &
         \begin{tabular}[c]{@{}c@{}}2012年1月 –\\ 2020年8月\end{tabular} &
-        \begin{tabular}[c]{@{}c@{}}1 Double sideband\\ PCTJ  SiS mixer\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}}1 Double sideband\\ PCTJ  SIS mixer\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim$1 GHz\\ 分解能 $\sim$61 kHz\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3} \\ (分子同時観測不可能)\end{tabular} \\ \hline
     % Multi-freq. Phase 1 &
@@ -288,6 +288,7 @@ FRSWによるオフセット成分の除去はおおまかなものであり、�
 トロムソはミリ波地上観測にとってははじめての観測地であるため、周囲の電波環境や新たな観測装置の特性は明らかではなく、実際にどのような質のデータが取れるのかということの確認が必要である。
 そのため、取得データを科学的研究に最大限に活用するためには、まずはデータの傾向を精査する必要がある。
 そして、その傾向を把握した上で、データのスクリーニング（特定の条件を設定し、全体のデータから解析に用いることができるデータのみを選別）をする必要がある（詳細は\ref{sec:screening_opticaldepth}節と\ref{sec:screening_spectralnoise}節にて述べる）。
+今回は2018年12月26日 - 2019年3月10日の期間に行われたテスト観測データを用いた。
 
 
 \section{Syowa, Antarctic(69.00\textdegree S, 39.85\textdegree E)}
@@ -300,19 +301,44 @@ FRSWによるオフセット成分の除去はおおまかなものであり、�
 南極・昭和基地では2011年に観測装置が立ち上げられ、現在まで観測が続けられている。
 % 立ち上げが2011年？観測開始が2012年？
 % 分光計は4つすべて用いられた？
+今回は2023年3月22日 - 2023年3月30日の観測データを用いた。
 昭和基地では\ce{O3}と\ce{NO}の同時観測を目指すため、多周波数分光計が設置されている。
-今回用いた分光計は2022年7月より定常観測を行っており、分光帯域は従来の分光計と比較して$1\ GHz$から$2.5\ GHz$まで広がった（表\ref{tb:spectrometer_spec}）。
+今回用いた分光計は2022年7月より定常観測を行っており、分光帯域は従来の分光計と比較して$1\, \mathrm{GHz}$から$2.5\, \mathrm{GHz}$まで広がった（表\ref{tb:spectrometer_spec}）。
 帯域が広がったことにより観測できる\ce{NO}の輝線スペクトルの本数を増やすことができた。トロムソに設置されている分光計では2本の輝線スペクトルが観測できたが、昭和基地では6本の輝線スペクトルを観測することができた。
 現在観測できる\ce{NO}の輝線スペクトル例を図\ref{fig:NO_spectr}に示す。
+黒枠が南極・昭和基地で観測できる6本の\ce{NO}スペクトルを表し、赤枠がトロムソで観測できる2本の輝線スペクトルを表す。
+観測しているそれぞれの輝線スペクトルの周波数と遷移については、表\ref{tb:no_spectr_freq}に示す。
+なお、\ce{NO}スペクトルの周波数は、NASAが提供しているNASA JPL Catalog\footnote{\url{https://spec.jpl.nasa.gov/ftp/pub/catalog/catform.html}}より調べた。
+線スペクトル強度係数は柱密度の導出に用いるパラメーターである。（詳細は\ref{sec:derive_columndensity}節）。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/NO_spectr.pdf}
     % \caption{$\scriptstyle \mbox{昭和基地で現在観測できる6本の\ce{NO}輝線スペクトル} \scriptstyle
     % \mbox{（黒枠。赤枠はトロムソで観測できる2本の輝線スペクトル）}$}
-    \caption{\protect 昭和基地で現在観測できる6本の\ce{NO}輝線スペクトル \linebreak
-    （黒枠。赤枠はトロムソで観測できる2本の輝線スペクトル）}
+    \caption{昭和基地で現在観測できる6本の\ce{NO}輝線スペクトル}
+    % \caption{\protect 昭和基地で現在観測できる6本の\ce{NO}輝線スペクトル \linebreak
+    % （黒枠。赤枠はトロムソで観測できる2本の輝線スペクトル）}
     \label{fig:NO_spectr}
 \end{figure}
+\begin{table}[htbp]
+    \centering
+    \caption{トロムソと昭和基地で観測される6本の\ce{NO}の輝線スペクトル}
+    \label{tb:no_spectr_freq}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{cccccccc}
+    \hline
+    周波数 & \multicolumn{2}{c}{観測可能} & $J$ & $P_{\mathrm{ul}}$ & $F$ & IF 周波数  & 線スペクトル強度係数 $A$ \\
+    $[\mathrm{GHz}]$ & Troms\o & Syowa &  &  &  & $[\mathrm{MHz}]$ & $[\mathrm{K^{-2}} \mathrm{MHz^{-1}} \mathrm{cm^{-2}}]$ \\ \hline
+    $250.436848$ &  & $\circ$ & $5/2 - 3/2$ & \ce{+ -> -} & $7/2 - 5/2$ & $1124.3$ & $4.00\times 10^{13}$ \\ \hline
+    $250.440659$ &  & $\circ$ & $5/2 - 3/2$ & \ce{+ -> -} & $5/2 - 3/2$ & $1128.2$ & $6.35\times 10^{13}$ \\ \hline
+    $250.448530$ &  & $\circ$ & $5/2 - 3/2$ & \ce{+ -> -} & $3/2 - 1/2$ & $1136.0$ & $1.07\times 10^{14}$ \\ \hline
+    $250.796436$ &  & $\circ$ & $5/2 - 3/2$ & \ce{- -> +} & $7/2 - 5/2$ & $1483.9$ & $3.99\times 10^{13}$ \\ \hline
+    $250.815954$ & $\circ$ & $\circ$ & $5/2 - 3/2$ & \ce{- -> +} & $5/2 - 3/2$ & $1503.1$ & $6.33\times 10^{13}$ \\ \hline
+    $250.816954$ & $\circ$ & $\circ$ & $5/2 - 3/2$ & \ce{- -> +} & $3/2 - 1/2$ & $1504.5$ & $1.06\times 10^{14}$ \\ \hline
+    \end{tabular}%
+    }
+\end{table}
+
 \ce{O3}の輝線スペクトルと比較すると\ce{NO}の輝線スペクトルはとても微弱である。
 そのため、どのデータが解析に用いることができるかスクリーニングを行い、電波強度の補正を行うことが重要となってくる。
 詳細は\ref{ch:mm_analysis}章で述べていく。
