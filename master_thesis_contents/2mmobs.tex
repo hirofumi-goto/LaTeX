@@ -137,8 +137,6 @@
     \equiv I_\nu
     = T_\mathrm{sky}
     \label{eq:absorption_selfemission_5} \\
-    % I_\nu :電波強度、T_{sky}:大気からの熱放射、c:光速、k:Boltzmann定数 \notag \\
-    % h:Planck定数、\nu :周波数、T:黒体温度 \notag
     T_\mathrm{sky}:大気からの熱放射 \notag
 \end{gather}
 が成り立つ。
@@ -273,18 +271,7 @@
         \begin{tabular}[c]{@{}c@{}} Double sideband\\ PCTJ  SIS mixer\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim1\ \mathrm{GHz}$\\ 分解能 $\sim61\ \mathrm{kHz}$\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3} \\ (切替観測)\end{tabular} \\ \hline
-    % Multi-freq. Phase 1 &
-    %     \begin{tabular}[c]{@{}c@{}}2020年11月 – \\ 2021年2月\end{tabular} &
-    %     \begin{tabular}[c]{@{}c@{}}2 Single sideband\\ PCTJ SIS mixers\end{tabular} &
-    %     \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim$1GHz\\ 分解能 $\sim$61 kHz\end{tabular} &
-    %     \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3}, \ce{CO}, \ce{HO2} \\ (分子同時観測可能)\end{tabular} \\ \hline
-    % Multi-freq. Phase 2 &
-    %     \begin{tabular}[c]{@{}c@{}}2021年3月 –\\ 2022年1月\end{tabular} &
-    %     \begin{tabular}[c]{@{}c@{}}1 Single sideband\\ PCTJ SIS mixers\end{tabular} &
-    %     \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim$2 GHz\\ 分解能 $\sim$61 kHz\end{tabular} &
-    %     \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3}, \ce{HO2} \\ (分子同時観測可能)\\ (due to oscillator damage)\end{tabular} \\ \hline
     多周波数分光計 &
-    % 多周波数分光計 Phase 3 &
         2022年7月 - &
         \begin{tabular}[c]{@{}c@{}}2 Single sideband\\ series-array SIS mixers\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim2.5\ \mathrm{GHz}$\\ 分解能 $\sim76\ \mathrm{kHz}$\end{tabular} &
@@ -320,7 +307,7 @@
 % 観測諸元をどこにまとめるか？
 昭和基地では、設置当初から\ce{O3}と\ce{NO}を切り替えることで、両分子のモニタリング観測が行われてきた。
 これらの同時観測を行うため、2020年に新たに多周波数分光計が設置され、2022年7月より定常観測を開始した~\cite{iwata2019master,kosegaki2020master}。
-% 加えて、中島のマルチプレクサ論文、作間先生の超伝導フィルタ論文を引用
+% 加えて、中島先生のマルチプレクサ論文、作間先生の超伝導フィルタ論文を引用
 一度に分光できる帯域幅は、従来の分光計と比較すると、$1\, \mathrm{GHz}$から$2.5\, \mathrm{GHz}$に広がった（表\ref{tb:spectrometer_spec}）。
 帯域が広がったことにより、\ce{NO}・\ce{O3}・\ce{CO}・\ce{NO2}・\ce{HO2}の5分子同時観測が実現しただけでなく、とくに\ce{NO}については輝線スペクトルの本数を増やすことができた。
 % NO分子輝線は、超微細構造（これも説明が必要）を持ち、複数のラインがあることを説明する必要あり。
@@ -334,11 +321,7 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/NO_spectr.pdf}
-    % \caption{$\scriptstyle \mbox{昭和基地で現在観測できる6本の\ce{NO}輝線スペクトル} \scriptstyle
-    % \mbox{（黒枠。赤枠はトロムソで観測できる2本の輝線スペクトル）}$}
     \caption{昭和基地で現在観測されている6本の\ce{NO}輝線スペクトルの例}
-    % \caption{\protect 昭和基地で現在観測できる6本の\ce{NO}輝線スペクトル \linebreak
-    % （黒枠。赤枠はトロムソで観測できる2本の輝線スペクトル）}
     \label{fig:NO_spectr}
 \end{figure}
 \begin{table}[htbp]
