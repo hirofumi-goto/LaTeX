@@ -1,6 +1,5 @@
-/.DS_Store
-/.tmp.driveupload
-/.vscode
-# /latex-output
-latex-output/.DS_Store
-master_thesis_contents/.DS_Store
+.DS_Store
+.vscode
+master_thesis_contents/.tmp.driveupload
+latex-output/master_thesis_contents/*.aux
+latex-output/*.aux
