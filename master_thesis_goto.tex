@@ -9,62 +9,63 @@
 \usepackage{subcaption}
 % \usepackage{amssymb}
 \usepackage{url}
+% \usepackage{hyperref}
+% \usepackage{pxjahyper}
 
 \includeonly{
-    % master_thesis_contents/master_thesis_goto_0abstract.tex,
-    master_thesis_contents/master_thesis_goto_1intro.tex,
-    master_thesis_contents/master_thesis_goto_2mmobs.tex,
-    master_thesis_contents/master_thesis_goto_3mm_analysis.tex,
-    % master_thesis_contents/master_thesis_goto_4results.tex,
-    % master_thesis_contents/master_thesis_goto_5discussion.tex,
-    % master_thesis_contents/master_thesis_goto_6conclusion.tex,
-    % master_thesis_contents/master_thesis_goto_7ack.tex,
-    % master_thesis_contents/master_thesis_goto_app1sofie.tex,
-    % master_thesis_contents/master_thesis_goto_app2poes.tex
+    master_thesis_contents/0abstract.tex,
+    master_thesis_contents/1intro.tex,
+    master_thesis_contents/2mmobs.tex,
+    master_thesis_contents/3mm_analysis.tex,
+    master_thesis_contents/4results.tex,
+    master_thesis_contents/5discussion.tex,
+    master_thesis_contents/6conclusion.tex,
+    master_thesis_contents/7ack.tex,
+    master_thesis_contents/app1sofie.tex,
+    master_thesis_contents/app2poes.tex,
 }
 
 \begin{document}
 
 \title{ミリ波分光計を用いた北極域・南極域における \\ 中層大気中の一酸化窒素分子変動の観測的研究}
-% \title{北極域・南極域における中層大気中の \\ 一酸化窒素分子の大気観測および柱密度変動と \\ 高エネルギー電子の降り込みの解析}
 \author{名古屋大学大学院工学研究科電気工学専攻 \\ 後藤宏文}
 \date{\empty}
 
 \maketitle
 
 % abstract
-\include{master_thesis_contents/master_thesis_goto_0abstract.tex}
+\include{master_thesis_contents/0abstract.tex}
 
 \tableofcontents
 
 % \chapter{イントロダクション}
-\include{master_thesis_contents/master_thesis_goto_1intro.tex}
+\include{master_thesis_contents/1intro.tex}
 
 % \chapter{ミリ波観測手法}
-\include{master_thesis_contents/master_thesis_goto_2mmobs.tex}
+\include{master_thesis_contents/2mmobs.tex}
 
 % \chapter{ミリ波観測解析手法}
-\include{master_thesis_contents/master_thesis_goto_3mm_analysis.tex}
+\include{master_thesis_contents/3mm_analysis.tex}
 
 % \chapter{結果}
-\include{master_thesis_contents/master_thesis_goto_4results.tex}
+\include{master_thesis_contents/4results.tex}
 
 % \chapter{考察}
-\include{master_thesis_contents/master_thesis_goto_5discussion.tex}
+\include{master_thesis_contents/5discussion.tex}
 
 % \chapter{まとめ}
-\include{master_thesis_contents/master_thesis_goto_6conclusion.tex}
+\include{master_thesis_contents/6conclusion.tex}
 
 % \chapter*{謝辞}
-\include{master_thesis_contents/master_thesis_goto_7ack.tex}
+\include{master_thesis_contents/7ack.tex}
 
 \bibliographystyle{junsrt}
-\bibliography{master_thesis_ref}
+\bibliography{ref}
 
 \appendix
 % \chapter{SOFIE衛星}
-\include{master_thesis_contents/master_thesis_goto_app1sofie.tex}
+\include{master_thesis_contents/app1sofie.tex}
 % \chapter{POES/MetOp衛星}
-\include{master_thesis_contents/master_thesis_goto_app2poes.tex}
+\include{master_thesis_contents/app2poes.tex}
 
 \end{document}
