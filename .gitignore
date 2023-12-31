@@ -3,3 +3,5 @@
 master_thesis_contents/.tmp.driveupload
 latex-output/master_thesis_contents/*.aux
 latex-output/*.aux
+latex-output/master_thesis_goto.pdf
+latex-output/master_thesis_goto.synctex.gz
