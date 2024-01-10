@@ -3,7 +3,7 @@
 \ref{ch:mm_obs}章では、我々が開発したミリ波分光計を用いた大気分子の観測手法について述べる。
 まず\ref{sec:mm_obs}節では観測手法の概観を紹介し、観測された電波強度のキャリブレーション方法、受信電波から分子スペクトルを抽出するために行う周波数スイッチング、下層大気の影響を評価し除去するための光学的厚みの測定について述べる。
 次に、本研究で使用したミリ波分光計について、\ref{subsec:mm_tromsoe}節でノルウェーのトロムソに設置した装置、\ref{subsec:mm_syowa}節で南極の昭和基地に設置された装置についてそれぞれ説明する。
-
+% USBとLSBの章をどこかに入れないといけない。
 
 \section{観測手法}
 \label{sec:mm_obs}
@@ -19,6 +19,7 @@
 \end{figure}
 % 「下層大気」
 % この場合、「下層大気」とは何でしょうか？高度軸は、対流圏・成層圏などの言葉を使い（もしくは高度を数字で書いても良い）、もう少し正確・定量的に描いた方が良い。
+% 修正済
 ミリ波電波分光法では、観測対象の大気分子の回転遷移によって放射されるミリ波帯電波を受信し分光することで、電波放射スペクトルを観測している。
 しかし、図\ref{fig:spectrometer_schema}に示す通り、電波を地上で観測すると、経路上にある下層大気の水蒸気や雲の影響を考慮する必要があることに注意しなければならない。
 この影響は、下層大気の光学的厚みを実際に計測することで、補正ができる。
@@ -55,11 +56,15 @@
         ミクサから出力された信号を後段の分光計にとって適切な周波数にさらに変換し、必要な電波強度レベルまで増幅する。
     \item 分光計 \par
         入力信号を直接A/D変換して時系列データとして読み込み、それを高速フーリエ変換することにより大気分子の周波数スペクトルを得る。
-        本研究で用いた大気分子のスペクトルデータを得るために使用された分光計は
+        本研究で用いた大気分子のスペクトルデータを得るために使用された分光計は、トロムソと昭和基地でそれぞれ異なる。
+        トロムソではAcqiris社のAC240を用いており、$2\times 10^9\ \mathrm{samples/sec}$でサンプリングを行っている。
+        周波数帯域幅はその半分の$1\ \mathrm{GHz}$となり、16348チャンネルの周波数スペクトルデータを出力し、周波数分解能は$67\ \mathrm{kHz}$となる。
+        昭和基地ではRPG社のXFFTSを用いており、$5\times 10^9\ \mathrm{samples/sec}$でサンプリングを行っている。
+        周波数帯域幅はその半分の$2.5\ \mathrm{GHz}$となり、32768チャンネルの周波数スペクトルデータを出力し、周波数分解能は$88\ \mathrm{kHz}$である。
+        チャンネル間隔と比べて周波数分解能が悪くなるのは、サイドローブのリップル（干渉縞のような小さなピークの重なり）を低減するためアポダイぜーションをかけているためである。
         % 追加:「、＊＊社の＊＊であり、その仕様としては」
-        16348チャンネルの周波数スペクトルデータを出力する~\cite{ito2017master}。
-        % 昭和基地の場合のチャンネル数は？引用元をみないといけない
         % もし分光計の仕様を紹介したいのであれば、チャネル数だけを書くというのはあまり意味がありません。たとえば、大山さんの論文を見て、分光計の諸元として何が書かれているかを参考にすると良い。
+        % 修正済
 \end{enumerate} \par
 ミリ波電波分光法による地上観測による最大の利点は、太陽光などの背景光源を必要としないため、昼夜を問わず連続的なモニタリングが可能なことである。
 これは、昼夜だけでなく白夜や極夜がある極地においても、その影響を受けずに連続観測することができる唯一の手法であることを意味している。
@@ -79,7 +84,7 @@
 \end{gather}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/planck.pdf}
+    \includegraphics{master_thesis_contents/master_thesis_fig/planck.pdf}
     \caption{Planckの放射式（~\cite{ito2017master}より引用）}
     \label{fig:planck}
 \end{figure}
@@ -151,7 +156,7 @@
 実際の観測で得られるスペクトルデータとしては第1項が図\ref{fig:spectum_thermalnoise}における橙色の成分、第2項が青色の成分に対応する（実際には青色の成分に第3項の受信機雑音も含まれるが、その詳細は\ref{subsec:frsw}節にて述べる）。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/spectum_thermalnoise.pdf}
+    \includegraphics{master_thesis_contents/master_thesis_fig/spectum_thermalnoise.pdf}
     \caption{スペクトルデータの強度を決める要素}
     \label{fig:spectum_thermalnoise}
 \end{figure}
@@ -269,12 +274,12 @@
     単周波数分光計 &
         2016年 - &
         \begin{tabular}[c]{@{}c@{}} Double sideband\\ PCTJ  SIS mixer\end{tabular} &
-        \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim1\ \mathrm{GHz}$\\ 分解能 $\sim61\ \mathrm{kHz}$\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim1\ \mathrm{GHz}$\\ 分解能 $\sim67\ \mathrm{kHz}$\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3} \\ (切替観測)\end{tabular} \\ \hline
     多周波数分光計 &
         2022年7月 - &
         \begin{tabular}[c]{@{}c@{}}2 Single sideband\\ series-array SIS mixers\end{tabular} &
-        \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim2.5\ \mathrm{GHz}$\\ 分解能 $\sim76\ \mathrm{kHz}$\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim2.5\ \mathrm{GHz}$\\ 分解能 $\sim88\ \mathrm{kHz}$\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3}, \ce{CO}, \ce{NO2}, \ce{HO2}\\ (同時観測)\end{tabular} \\ \hline
     \end{tabular}
     }
@@ -306,14 +311,14 @@
 今回は2023年3月22日〜2023年3月30日の観測データを用いた。
 % 観測諸元をどこにまとめるか？
 昭和基地では、設置当初から\ce{O3}と\ce{NO}を切り替えることで、両分子のモニタリング観測が行われてきた。
-これらの同時観測を行うため、2020年に新たに多周波数分光計が設置され、2022年7月より定常観測を開始した~\cite{iwata2019master,kosegaki2020master}。
+これらの同時観測を行うため、2020年に新たに多周波数分光計が設置され、2022年7月より定常観測を開始した~\cite{iwata2019master,kosegaki2020master,nakajima2020waveguide,sakuma2023superconducting}。
 % 加えて、中島先生のマルチプレクサ論文、作間先生の超伝導フィルタ論文を引用
 一度に分光できる帯域幅は、従来の分光計と比較すると、$1\, \mathrm{GHz}$から$2.5\, \mathrm{GHz}$に広がった（表\ref{tb:spectrometer_spec}）。
 帯域が広がったことにより、\ce{NO}・\ce{O3}・\ce{CO}・\ce{NO2}・\ce{HO2}の5分子同時観測が実現しただけでなく、とくに\ce{NO}については輝線スペクトルの本数を増やすことができた。
 \ce{NO}分子の輝線スペクトルの本数を増やすことができるのは、\ce{NO}分子輝線が超微細構造と呼ばれる、分子が持つエネルギー準位が非常に小さいエネルギー差で存在する構造を持っているため、複数の輝線スペクトルが存在することに起因する。
 トロムソに設置されている分光計では、超微細構造線のうち2本の輝線スペクトルのみの観測であったが、昭和基地の新たな分光計では合計6本の輝線スペクトルを観測することができるようになった。\par
 
-昭和基地で現在同時観測されている分子スペクトルの例を図\ref{fig:NO_spectr}に示す。
+昭和基地で現在同時観測されている分子スペクトルの例として、2022年9月4〜7日の4日分の積分データを図\ref{fig:NO_spectr}に示す。
 黒枠が6本の\ce{NO}スペクトルを表し、そのうち赤枠で示したもののみがトロムソで観測されている2本のスペクトルである。
 それぞれの輝線スペクトルの静止周波数と遷移については、表\ref{tb:no_spectr_freq}に示す。
 なお、\ce{NO}スペクトルの静止周波数および線スペクトル強度係数は、NASAが提供しているJPL Catalog\footnote{\url{https://spec.jpl.nasa.gov/ftp/pub/catalog/catform.html}}より調べた。
@@ -339,7 +344,7 @@
     $250.796436$ &  & \checkmark & $5/2 - 3/2$ & \ce{- -> +} & $7/2 - 5/2$ & $1483.9$ & $3.99\times 10^{13}$ \\ \hline
     $250.815954$ & \checkmark & \checkmark & $5/2 - 3/2$ & \ce{- -> +} & $5/2 - 3/2$ & $1503.1$ & $6.33\times 10^{13}$ \\ \hline
     $250.816954$ & \checkmark & \checkmark & $5/2 - 3/2$ & \ce{- -> +} & $3/2 - 1/2$ & $1504.5$ & $1.06\times 10^{14}$ \\ \hline
-    \end{tabular}%
+    \end{tabular}
     }
 \end{table}
 図\ref{fig:NO_spectr}を見ると、\ce{O3}スペクトルと比較して、\ce{NO}スペクトルはとても微弱である。
