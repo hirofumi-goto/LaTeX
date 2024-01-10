@@ -158,18 +158,18 @@
 式\eqref{eq:absorption_selfemission_6}の左辺$T$が観測値として直接的に得られる電波強度であるが、我々が知りたい値は、もともとの放射強度である$T_0$であるので、$T_0$を知るためには光学的厚みの補正が必要となるわけである。\par
 
 次に、光学的厚みをどのように測定するかについて述べる。
-光学的厚みの測定は図\ref{fig:opticaldepth_measurement}のように観測の間に定期的に行われており、たとえばトロムソの観測装置ではおよそ5分おきに測定されている。
-% 昭和基地も同じなのか？
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/opticaldepth_measurement.pdf}
-    \caption{ミリ波観測と光学的厚み$(\tau)$の測定の流れ}
-    \label{fig:opticaldepth_measurement}
-\end{figure}
+光学的厚みの測定は観測の間に定期的に行われており、たとえば昭和基地の観測装置ではおよそ12-13分おきに測定されている。
+% 光学的厚みの測定は図\ref{fig:opticaldepth_measurement}のように観測の間に定期的に行われており、
+% たとえばトロムソの観測装置ではおよそ5分おきに測定されている。
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/opticaldepth_measurement.pdf}
+%     \caption{ミリ波観測と光学的厚み$(\tau)$の測定の流れ}
+%     \label{fig:opticaldepth_measurement}
+% \end{figure}
 % この図は必要でしょうか？図が無いと理解できないほどの内容ではないのと、図が何を説明したいのか、良く分かりませんでした。
 測定された光学的厚みの値は、直前に観測された電波強度のデータの補正に用いられる。
-光学的厚みの測定についてはSky tippingと呼ばれる手法が用いられる。
-% Sky tippingの文献がありませんか。
+光学的厚みの測定についてはSky tippingと呼ばれる手法が用いられる~\cite{ulich1980absolute}。
 まず関係式として、以下の二式を用いる。
 \begin{gather}
     \begin{cases}
@@ -310,7 +310,7 @@
 % 加えて、中島先生のマルチプレクサ論文、作間先生の超伝導フィルタ論文を引用
 一度に分光できる帯域幅は、従来の分光計と比較すると、$1\, \mathrm{GHz}$から$2.5\, \mathrm{GHz}$に広がった（表\ref{tb:spectrometer_spec}）。
 帯域が広がったことにより、\ce{NO}・\ce{O3}・\ce{CO}・\ce{NO2}・\ce{HO2}の5分子同時観測が実現しただけでなく、とくに\ce{NO}については輝線スペクトルの本数を増やすことができた。
-% NO分子輝線は、超微細構造（これも説明が必要）を持ち、複数のラインがあることを説明する必要あり。
+\ce{NO}分子の輝線スペクトルの本数を増やすことができるのは、\ce{NO}分子輝線が超微細構造と呼ばれる、分子が持つエネルギー準位が非常に小さいエネルギー差で存在する構造を持っているため、複数の輝線スペクトルが存在することに起因する。
 トロムソに設置されている分光計では、超微細構造線のうち2本の輝線スペクトルのみの観測であったが、昭和基地の新たな分光計では合計6本の輝線スペクトルを観測することができるようになった。\par
 
 昭和基地で現在同時観測されている分子スペクトルの例を図\ref{fig:NO_spectr}に示す。
@@ -333,12 +333,12 @@
     \hline
     周波数 & \multicolumn{2}{c}{観測可能} & $J$ & $P_{\mathrm{ul}}$ & $F$ & IF 周波数  & 線スペクトル強度係数 $A$ \\
     $[\mathrm{GHz}]$ & Troms\o & Syowa &  &  &  & $[\mathrm{MHz}]$ & $[\mathrm{K^{-2}} \mathrm{MHz^{-1}} \mathrm{cm^{-2}}]$ \\ \hline
-    $250.436848$ &  & $\circ$ & $5/2 - 3/2$ & \ce{+ -> -} & $7/2 - 5/2$ & $1124.3$ & $4.00\times 10^{13}$ \\ \hline
-    $250.440659$ &  & $\circ$ & $5/2 - 3/2$ & \ce{+ -> -} & $5/2 - 3/2$ & $1128.2$ & $6.35\times 10^{13}$ \\ \hline
-    $250.448530$ &  & $\circ$ & $5/2 - 3/2$ & \ce{+ -> -} & $3/2 - 1/2$ & $1136.0$ & $1.07\times 10^{14}$ \\ \hline
-    $250.796436$ &  & $\circ$ & $5/2 - 3/2$ & \ce{- -> +} & $7/2 - 5/2$ & $1483.9$ & $3.99\times 10^{13}$ \\ \hline
-    $250.815954$ & $\circ$ & $\circ$ & $5/2 - 3/2$ & \ce{- -> +} & $5/2 - 3/2$ & $1503.1$ & $6.33\times 10^{13}$ \\ \hline
-    $250.816954$ & $\circ$ & $\circ$ & $5/2 - 3/2$ & \ce{- -> +} & $3/2 - 1/2$ & $1504.5$ & $1.06\times 10^{14}$ \\ \hline
+    $250.436848$ &  & \checkmark & $5/2 - 3/2$ & \ce{+ -> -} & $7/2 - 5/2$ & $1124.3$ & $4.00\times 10^{13}$ \\ \hline
+    $250.440659$ &  & \checkmark & $5/2 - 3/2$ & \ce{+ -> -} & $5/2 - 3/2$ & $1128.2$ & $6.35\times 10^{13}$ \\ \hline
+    $250.448530$ &  & \checkmark & $5/2 - 3/2$ & \ce{+ -> -} & $3/2 - 1/2$ & $1136.0$ & $1.07\times 10^{14}$ \\ \hline
+    $250.796436$ &  & \checkmark & $5/2 - 3/2$ & \ce{- -> +} & $7/2 - 5/2$ & $1483.9$ & $3.99\times 10^{13}$ \\ \hline
+    $250.815954$ & \checkmark & \checkmark & $5/2 - 3/2$ & \ce{- -> +} & $5/2 - 3/2$ & $1503.1$ & $6.33\times 10^{13}$ \\ \hline
+    $250.816954$ & \checkmark & \checkmark & $5/2 - 3/2$ & \ce{- -> +} & $3/2 - 1/2$ & $1504.5$ & $1.06\times 10^{14}$ \\ \hline
     \end{tabular}%
     }
 \end{table}
