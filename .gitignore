@@ -1,8 +1,5 @@
-*
-!latex-output/master_thesis_contents/*.pdf
-!master_thesis_contents/master_thesis_fig/*.pdf
-!.gitignore
-!latexmkrc
-!*.tex
-!*.bib
-!README.md
+.DS_Store
+/.vscode
+master_thesis_contents/.tmp.driveupload
+latex-output/master_thesis_contents/*.aux
+latex-output/master_thesis_goto.*
