@@ -1,13 +1,14 @@
 \chapter{ミリ波観測法}
 \label{ch:mm_obs}
 \ref{ch:mm_obs}章では、我々が開発したミリ波分光計を用いた大気分子の観測手法について述べる。
-まず\ref{sec:mm_obs}節では観測手法の概観を紹介し、観測された電波強度のキャリブレーション方法、受信電波から分子スペクトルを抽出するために行う周波数スイッチング、下層大気の影響を評価し除去するための光学的厚みの測定について述べる。
-次に、本研究で使用したミリ波分光計について、\ref{subsec:mm_tromsoe}節でノルウェーのトロムソに設置した装置、\ref{subsec:mm_syowa}節で南極の昭和基地に設置された装置についてそれぞれ説明する。
-% USBとLSBの章をどこかに入れないといけない。
+まず\ref{sec:obs_method}節では観測手法の概観を紹介し（\ref{ssec:obs_overview}節）、観測された電波強度のキャリブレーション方法（\ref{ssec:obs_calibration}節）、下層大気の影響を評価し除去するための光学的厚みの測定（\ref{ssec:obs_opticaldepth}節）、受信電波から分子スペクトルを抽出するために行う周波数スイッチング（\ref{ssec:obs_frsw}節）について述べる。
+次に\ref{sec:obs_location}節では、本研究で使用したミリ波分光計について、\ref{ssec:obs_tromsoe}節でノルウェーのトロムソに設置した装置、\ref{ssec:obs_syowa}節で南極の昭和基地に設置された装置についてそれぞれ説明する。
+
 
 \section{観測手法}
-\label{sec:mm_obs}
+\label{sec:obs_method}
 \subsection{観測手法の概観と観測装置}
+\label{ssec:obs_overview}
 最初に、ミリ波分光法を用いた大気分子の観測手法について述べる。
 私たちのグループでは、観測の手法としてミリ波電波分光法による地上観測によって大気分子を観測している~\cite{mizuno2002millimeter}。
 その模式図を図\ref{fig:spectrometer_schema}に示す。
@@ -17,13 +18,10 @@
     \caption{ミリ波電波分光法による地上観測の模式図}
     \label{fig:spectrometer_schema}
 \end{figure}
-% 「下層大気」
-% この場合、「下層大気」とは何でしょうか？高度軸は、対流圏・成層圏などの言葉を使い（もしくは高度を数字で書いても良い）、もう少し正確・定量的に描いた方が良い。
-% 修正済
 ミリ波電波分光法では、観測対象の大気分子の回転遷移によって放射されるミリ波帯電波を受信し分光することで、電波放射スペクトルを観測している。
 しかし、図\ref{fig:spectrometer_schema}に示す通り、電波を地上で観測すると、経路上にある下層大気の水蒸気や雲の影響を考慮する必要があることに注意しなければならない。
 この影響は、下層大気の光学的厚みを実際に計測することで、補正ができる。
-光学的厚みの測定方法の詳細は\ref{subsec:opticaldepth}節にて述べる。\par
+光学的厚みの測定方法の詳細は\ref{ssec:obs_opticaldepth}節にて述べる。\par
 
 ミリ波分光計を用いた大気観測装置の構成を図\ref{fig:mm_component}に示し、例として南極の昭和基地に設置された大気観測装置の様子を図\ref{fig:mmobs_spectrometer_syowa}に示す。
 図\ref{fig:mm_component}に示すように、観測装置は主に以下の4つの部分に分かれている。
@@ -44,43 +42,55 @@
     \item 光学系 \par
         大気分子からの信号を集光し伝送するための複数の鏡と電磁ホーンによって構成される。
         また、回転鏡を用いることにより、強度キャリブレーションに用いる基準雑音信号として、常温黒体（$300\, \mathrm{K}$）と冷却黒体（$77\, \mathrm{K}$）からの放射も入力できるようになっている。
-        大気分子からの信号とその信号のキャリブレーション（詳細は\ref{subsec:calibration}節）で用いる常温黒体と冷却黒体の測定との切り替えを行う。
+        大気分子からの信号とその信号のキャリブレーション（詳細は\ref{ssec:obs_calibration}節）で用いる常温黒体と冷却黒体の測定との切り替えを行う。
         PLM（光路長変調器: Path Length Modulator）は光学系にて発生する定常波を除去する役割がある。
     \item ヘテロダイン受信機 \par
         大気分子からの信号を局部発振器からの信号とSISミクサで混合する。
         大気分子からの電波は微弱であるため、信号処理に適切なレベルまで増幅しなければならない。
         しかし、本研究で扱う電波の周波数（数百GHz程度）を直接増幅できる増幅器は、現在のところ実用レベルでは存在しない。
-        そこで、受信した信号をSISミクサを用いて低い周波数（数GHz程度）に下げることにより、一般的なマイクロ波帯のHEMTアンプによって増幅する方法をとっている。
+        そこで、受信した信号をSISミクサを用いて低い周波数（以後、中間周波数と呼ぶ。数GHz程度）に下げることにより、一般的なマイクロ波帯のHEMTアンプによって増幅する方法をとっている。
         このような受信方法をヘテロダイン方式と呼ぶ。
+        ヘテロダイン方式における周波数の関係は以下のようになる。
+        \begin{gather}
+            \left| f_{\mathrm{RF}} - f_{\mathrm{LO}} \right| = f_{\mathrm{IF}}
+            \label{eq:heterodyne} \\
+            f_{\mathrm{RF}}:大気分子からの信号周波数、f_{\mathrm{LO}}:局部発振器周波数、f_{\mathrm{IF}}:中間周波数 \notag
+        \end{gather} \par
+        このように中間周波数には2つの周波数がある。
+        そのうち、高いほうの周波数$f_{\mathrm{RF}} - f_{\mathrm{LO}}$をUSB（Upper SideBand）、低いほうの周波数$- \left( f_{\mathrm{RF}} - f_{\mathrm{LO}} \right)$をLSB（Lower SideBand）と呼ぶ。
+        USBとLSBを両方出力する方式のミクサをDSB（Double SideBand）ミクサと呼び、片方のみを選んで出力する方式のミクサをSSB（Single SideBand）ミクサと呼ぶ。
+        DSBはSSBと比べて周波数帯域が広がるという利点があるが、分子の輝線スペクトルが片方のサイドバンドのみにある場合、もう片方のサイドバンドに含まれる大気雑音が入る欠点がある。
+        またDSBはそれぞれのサイドバンドに出力される中間周波数への変換効率が異なる場合がある。
+        サイドバンドへの信号の中間周波数への変換効率の比（サイドバンド比）を$R$とするとSSBにおいて出力される電波強度との関係は以下のようになる~\cite{nakai2009inbook}。
+        \begin{gather}
+            T_{\mathrm{SSB}} = \left( 1 + \frac{1}{R} \right) T_{\mathrm{DSB}}
+            \label{eq:ssb_dsb} \\
+            T_{\mathrm{SSB}}:\mathrm{SSB}での電波強度、T_{\mathrm{DSB}}:\mathrm{DSB}での電波強度 \notag
+        \end{gather} \par
+        本研究では、サイドバンド比は$R\approx 1$と仮定しており、これは分子の輝線スペクトルが片方のサイドバンドのみにある場合、スペクトルが実際の半分の強度で出力されることを意味する。
+        そのため、解析の際には、DSBミクサを用いて得られたスペクトル強度については、あらかじめ2倍にしてから行っている（詳細は\ref{sec:derive_columndensity}節）。
     \item 中間周波数系 \par
         ミクサから出力された信号を後段の分光計にとって適切な周波数にさらに変換し、必要な電波強度レベルまで増幅する。
     \item 分光計 \par
         入力信号を直接A/D変換して時系列データとして読み込み、それを高速フーリエ変換することにより大気分子の周波数スペクトルを得る。
-        本研究で用いた大気分子のスペクトルデータを得るために使用された分光計は、トロムソと昭和基地でそれぞれ異なる。
-        トロムソではAcqiris社のAC240を用いており、$2\times 10^9\ \mathrm{samples/sec}$でサンプリングを行っている。
-        周波数帯域幅はその半分の$1\ \mathrm{GHz}$となり、16348チャンネルの周波数スペクトルデータを出力し、周波数分解能は$67\ \mathrm{kHz}$となる。
-        昭和基地ではRPG社のXFFTSを用いており、$5\times 10^9\ \mathrm{samples/sec}$でサンプリングを行っている。
-        周波数帯域幅はその半分の$2.5\ \mathrm{GHz}$となり、32768チャンネルの周波数スペクトルデータを出力し、周波数分解能は$88\ \mathrm{kHz}$である。
-        チャンネル間隔と比べて周波数分解能が悪くなるのは、サイドローブのリップル（干渉縞のような小さなピークの重なり）を低減するためアポダイぜーションをかけているためである。
-        % 追加:「、＊＊社の＊＊であり、その仕様としては」
-        % もし分光計の仕様を紹介したいのであれば、チャネル数だけを書くというのはあまり意味がありません。たとえば、大山さんの論文を見て、分光計の諸元として何が書かれているかを参考にすると良い。
-        % 修正済
+        本研究で用いた大気分子のスペクトルデータを得るために使用された分光計の仕様は、観測場所でそれぞれ異なる（詳細は\ref{sec:obs_location}節）。
 \end{enumerate} \par
 ミリ波電波分光法による地上観測による最大の利点は、太陽光などの背景光源を必要としないため、昼夜を問わず連続的なモニタリングが可能なことである。
 これは、昼夜だけでなく白夜や極夜がある極地においても、その影響を受けずに連続観測することができる唯一の手法であることを意味している。
 以上より、連続的・長期的に観測を行うことが可能で、一地点において観測することにより自然起源や人為起源による長期的変動や短期的変動を観測することが可能であり、これが我々の研究グループがミリ波電波分光法による地上観測という世界的に見てもユニークな手法に力を入れている理由である。
 
+
 \subsection{電波強度のキャリブレーション}
-\label{subsec:calibration}
+\label{ssec:obs_calibration}
 次に、観測された電波に対して黒体を用いて行う強度キャリブレーションの手法について述べる。
 一般的に電波領域の研究では、大気分子からの電波放射強度は、それと同等のエネルギーを放射する黒体の温度に換算して表す。ここでミリ波領域（周波数$30-300\, \mathrm{GHz}$）においては、図\ref{fig:planck}よりRayleigh-Jeans近似が成り立つので、ほぼPlanckの放射式は以下のように表すことができる。
 \begin{gather}
     I_{\nu}(T)
     = \frac{2\mathrm{h}\nu^3}{c^2} \cdot \cfrac{1}{\exp \Biggl( \cfrac{\mathrm{h}\nu}{\mathrm{k}T}-1\Biggr) }
     \approx \frac{2\mathrm{h}\nu^3}{c^2} \cdot \left(\frac{\mathrm{h}\nu}{\mathrm{k}T}\right)^{-1}
-    = \frac{2\nu^2}{c^2}\mathrm{k}T \\
+    = \frac{2\nu^2}{c^2}\mathrm{k}T
+    \label{eq:planck} \\
     I_\nu(T):電波強度、c:光速、\mathrm{k}:Boltzmann定数、\mathrm{h}:Planck定数、\nu:周波数、T:黒体温度 \notag
-    \label{eq:planck}
 \end{gather}
 \begin{figure}[htbp]
     \centering
@@ -101,7 +111,7 @@
 
 
 \subsection{光学的厚み}
-\label{subsec:opticaldepth}
+\label{ssec:obs_opticaldepth}
 次に、受信された電波強度について、下層大気の影響の補正に用いる光学的厚みについて述べる。
 図\ref{fig:spectrometer_schema}に示したように、成層圏よりも高い高度にある分子からの電波を地上で観測する際には、下層大気（主に対流圏）を通過してきた電波を観測することになる。
 そのため、下層大気に含まれる水蒸気や雲の放射および吸収の影響を考慮に入れる必要があり、光学的厚みという概念を導入する。\par
@@ -153,7 +163,7 @@
 \end{gather}
 となる。
 これは、第1項が下層大気による電波吸収を考慮した（より上層にある）観測対象の分子からの電波強度、第2項は下層大気の熱放射を表している。
-実際の観測で得られるスペクトルデータとしては第1項が図\ref{fig:spectum_thermalnoise}における橙色の成分、第2項が青色の成分に対応する（実際には青色の成分に第3項の受信機雑音も含まれるが、その詳細は\ref{subsec:frsw}節にて述べる）。
+実際の観測で得られるスペクトルデータとしては第1項が図\ref{fig:spectum_thermalnoise}における橙色の成分、第2項が青色の成分に対応する（実際には青色の成分に第3項の受信機雑音も含まれるが、その詳細は\ref{ssec:obs_frsw}節にて述べる）。
 \begin{figure}[htbp]
     \centering
     \includegraphics{master_thesis_contents/master_thesis_fig/spectum_thermalnoise.pdf}
@@ -221,7 +231,7 @@
 
 
 \subsection{周波数スイッチング}
-\label{subsec:frsw}
+\label{ssec:obs_frsw}
 観測されたスペクトルデータから対象の分子スペクトルのみを得るためには、大気の熱放射と観測装置の受信機雑音によるオフセット成分を除去する必要がある。
 このオフセットを除去するにはいくつかの手法が行われているが、本研究で使用する観測装置では、周波数スイッチング（以後FRSWとする）という手法を用いる。
 % （図\ref{fig:frsw_schema}）
@@ -273,12 +283,12 @@
         観測対象の分子 \\ \hline
     単周波数分光計 &
         2016年 - &
-        \begin{tabular}[c]{@{}c@{}} Double sideband\\ PCTJ  SIS mixer\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}} Double SideBand\\ PCTJ  SIS mixer\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim1\ \mathrm{GHz}$\\ 分解能 $\sim67\ \mathrm{kHz}$\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3} \\ (切替観測)\end{tabular} \\ \hline
     多周波数分光計 &
         2022年7月 - &
-        \begin{tabular}[c]{@{}c@{}}2 Single sideband\\ series-array SIS mixers\end{tabular} &
+        \begin{tabular}[c]{@{}c@{}}2 Single SideBand\\ series-array SIS mixers\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}FFT 分光計\\ 帯域 $\sim2.5\ \mathrm{GHz}$\\ 分解能 $\sim88\ \mathrm{kHz}$\end{tabular} &
         \begin{tabular}[c]{@{}c@{}}\ce{NO}, \ce{O3}, \ce{CO}, \ce{NO2}, \ce{HO2}\\ (同時観測)\end{tabular} \\ \hline
     \end{tabular}
@@ -287,7 +297,7 @@
 
 
 \subsection{ノルウェー・トロムソでの観測(69.35\textdegree N, 19.14\textdegree E)}
-\label{subsec:mm_tromsoe}
+\label{ssec:obs_tromsoe}
 \ref{sec:intro_privious}節で述べたように、\ce{NO}のミリ波分光観測において、南極域の夏期には光化学反応の影響による\ce{NO}の減少によって\ce{NO}の短期変動の観測が困難になっているという課題がある。
 これは、季節が逆転する北極域において同様の観測を行い、両極域で\ce{NO}の同時モニタリングをすることによって解決できる可能性がある。
 なぜなら、両極において日照時間の長さは真逆の関係になっており、一方の極が夏期（極域では白夜）ならもう一方の極は冬期（極夜）になるからである。
@@ -300,20 +310,24 @@
 そのため、周囲の電波環境や下層大気の状況、さらに新たに開発された観測装置の現地での特性などは明らかではなく、実際にどのような質のデータが取れるのかということの確認がまず必要であった。\par
 
 本研究では、取得されるデータを科学的研究に最大限に活用するために、データの傾向や特徴を精査した。
-そして、その傾向や特徴からデータのスクリーニング（特定の条件を設定し、全体のデータから解析に用いることができるデータのみを選別）を行った（詳細は\ref{sec:screening_opticaldepth}節と\ref{sec:screening_spectralnoise}節にて述べる）。
-今回は2018年12月26日〜2019年3月10日の期間に行われたテスト観測データを用いた。
-% 観測諸元をここで説明するなら、期間だけでなく、使用データの詳細な説明が必要です。別の章に書くつもりなら、観測期間もここには必要ないでしょう。
+そして、その傾向や特徴からデータのスクリーニング（特定の条件を設定し、全体のデータから解析に用いることができるデータのみを選別）を行った（詳細は\ref{sec:screening_opticaldepth}節と\ref{sec:screening_spectralnoise}節にて述べる）。\par
+
+トロムソの分光計はAcqiris社のAC240を用いており、$2\times 10^9\ \mathrm{samples/sec}$でサンプリングを行っている。
+周波数帯域幅はその半分の$1\ \mathrm{GHz}$となり、16348チャンネルの周波数スペクトルデータを出力し、チャンネル間隔は$61\ \mathrm{kHz}$となり、周波数分解能は$67\ \mathrm{kHz}$である（周波数帯域幅と周波数分解能については表\ref{tb:spectrometer_spec}にも記載）。
+チャンネル間隔より周波数分解能が悪くなるのは、サイドローブのリップル（干渉縞のような小さなピークの重なり）を低減するためアポダイゼーションをかけているためである。
 
 
 \subsection{南極・昭和基地での観測(69.00\textdegree S, 39.85\textdegree E)}
-\label{subsec:mm_syowa}
+\label{ssec:obs_syowa}
 南極の昭和基地では2011年に観測装置が立ち上げられ、現在まで観測が続けられている~\cite{isono2014variations,isono2014ground}。
-今回は2023年3月22日〜2023年3月30日の観測データを用いた。
-% 観測諸元をどこにまとめるか？
 昭和基地では、設置当初から\ce{O3}と\ce{NO}を切り替えることで、両分子のモニタリング観測が行われてきた。
-これらの同時観測を行うため、2020年に新たに多周波数分光計が設置され、2022年7月より定常観測を開始した~\cite{iwata2019master,kosegaki2020master,nakajima2020waveguide,sakuma2023superconducting}。
-% 加えて、中島先生のマルチプレクサ論文、作間先生の超伝導フィルタ論文を引用
-一度に分光できる帯域幅は、従来の分光計と比較すると、$1\, \mathrm{GHz}$から$2.5\, \mathrm{GHz}$に広がった（表\ref{tb:spectrometer_spec}）。
+これらの同時観測を行うため、2020年に新たに多周波数分光計が設置され、2022年7月より定常観測を開始した~\cite{iwata2019master,kosegaki2020master,nakajima2020waveguide,sakuma2023superconducting}。\par
+
+分光計はRPG社のXFFTSを用いており、$5\times 10^9\ \mathrm{samples/sec}$でサンプリングを行っている。
+周波数帯域幅はその半分の$2.5\ \mathrm{GHz}$となり、32768チャンネルの周波数スペクトルデータを出力し、チャンネル間隔は$76\ \mathrm{kHz}$となり、周波数分解能は$88\ \mathrm{kHz}$である（周波数帯域幅と周波数分解能については表\ref{tb:spectrometer_spec}にも記載）。
+\ref{ssec:obs_tromsoe}節で紹介したトロムソの分光計と同様に、チャンネル間隔より周波数分解能が悪くなるのは、アポダイゼーションをかけている影響である。\par
+
+一度に分光できる帯域幅は、従来の分光計と比較すると$2.5$倍に広がった。
 帯域が広がったことにより、\ce{NO}・\ce{O3}・\ce{CO}・\ce{NO2}・\ce{HO2}の5分子同時観測が実現しただけでなく、とくに\ce{NO}については輝線スペクトルの本数を増やすことができた。
 \ce{NO}分子の輝線スペクトルの本数を増やすことができるのは、\ce{NO}分子輝線が超微細構造と呼ばれる、分子が持つエネルギー準位が非常に小さいエネルギー差で存在する構造を持っているため、複数の輝線スペクトルが存在することに起因する。
 トロムソに設置されている分光計では、超微細構造線のうち2本の輝線スペクトルのみの観測であったが、昭和基地の新たな分光計では合計6本の輝線スペクトルを観測することができるようになった。\par
