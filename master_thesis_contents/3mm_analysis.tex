@@ -2,7 +2,7 @@
 \label{ch:mm_analysis}
 \ref{ch:mm_obs}章で述べたように、トロムソは我々にとっては観測自体がはじめての場所であり、昭和基地においては分光計を更新してからはじめての観測である。
 そのため、それぞれ観測装置立ち上げ後に行われたテスト観測のデータを1つずつ精査した。
-また、\ref{subsec:mm_syowa}節の図\ref{fig:NO_spectr}で示したように\ce{NO}の輝線スペクトルはとても微弱である。
+また、\ref{ssec:obs_syowa}節の図\ref{fig:NO_spectr}で示したように\ce{NO}の輝線スペクトルはとても微弱である。
 そのため、S/N比がよい状態で輝線スペクトルを抽出する必要がある。
 今回、\ce{NO}の柱密度（Column Density）の導出をするにあたって、スクリーニング（特定の条件を設定し、全体のデータから解析に用いることができるデータのみを選別）と電波強度の補正を行った。
 ミリ波分光に関する装置は市販されていないため観測装置は自作となっており、その関係でスクリーニング、電波強度の補正に関わるプログラムは自ら作成した。
@@ -18,14 +18,15 @@
         \item 光学的厚みデータの補正（\ref{sec:correction_opticaldepth}節）
         \item NOスペクトルデータのベースラインの補正（\ref{sec:correction_baselinefitting}節）
     \end{itemize}
-\end{itemize}
+\end{itemize} \par
+本研究における解析を行うにあたって、トロムソでは2018年12月26日〜2019年3月10日の期間に行われたテスト観測のデータを用い、昭和基地では2023年3月22日〜2023年3月30日の観測データを用いた。
 \ref{sec:screening_opticaldepth}節と\ref{sec:correction_baselinefitting}節までのスクリーニングを行った結果、解析期間についてトロムソでは2019年1月23日〜2019年2月4日と2019年2月17日〜2019年2月20日、南極・昭和基地では2023年3月22日〜2023年3月30日となった。
-\ref{ch:mm_analysis}節では、それぞれの手法について上記のように順番に述べていき、最後の\ref{sec:derive_columndensity}節では柱密度の導出手法について述べる。
+\ref{ch:mm_analysis}章では、それぞれの手法について上記のように順番に述べていき、最後の\ref{sec:derive_columndensity}節では柱密度の導出手法について述べる。
 
 
 \section{光学的厚みデータを用いたスクリーニング}
 \label{sec:screening_opticaldepth}
-\ref{subsec:opticaldepth}節で述べたように、ミリ波分光計を用いた地上観測では下層大気による影響を受けるため、光学的厚みの測定データを用いてこの影響を取り除く必要がある。
+\ref{ssec:obs_opticaldepth}節で述べたように、ミリ波分光計を用いた地上観測では下層大気による影響を受けるため、光学的厚みの測定データを用いてこの影響を取り除く必要がある。
 したがって、光学的厚みの測定データは観測データに対して充分に安定していなければならない。
 図\ref{fig:optical_depth_tromsoe}に示しているデータは、トロムソの観測装置立ち上げ後行われたテスト観測に測定された光学的厚みの時間変化を表したものである。
 \begin{figure}[htbp]
@@ -74,7 +75,7 @@ NOスペクトルデータにおいて、解析に使うことのできない質
 \begin{itemize}
     \item 2乗平均誤差の整数丸め値が0である
     \item チャンネル5000-10000で強度の絶対値が$5\, \mathrm{K}$以上の値を含まない
-\end{itemize}
+\end{itemize} \par
 1つ目の条件は、全体的にノイズを含むデータ（たとえば図\ref{fig:raw_spectrum}(b)）を判別・除去することを意図しており、2つ目の条件はスパイク状のノイズを含むデータ（たとえば図\ref{fig:raw_spectrum}(c)）を除去することを意図している。
 設定したスクリーニング条件が妥当かどうかの検証は卒業研究~\cite{goto2021bachelor}にて行った。
 
@@ -173,17 +174,18 @@ NOスペクトルデータにおいて、解析に使うことのできない質
     \label{eq:derive_columndensity} \\
     N_{\mathrm{NO}}:\ce{NO}の柱密度[\mathrm{cm^{-2}}]、A:線スペクトル強度係数[\mathrm{K^{-2}} \cdot \mathrm{MHz^{-1}} \cdot \mathrm{cm^{-2}}] \notag \\
     T_{\mathrm{atm}}:大気温度[\mathrm{K}]、\int T_{\mathrm{NO}}d\nu:\ce{NO}のスペクトル積分強度 \notag
-\end{gather}
+\end{gather} \par
 線スペクトル強度係数は輝線スペクトルの強度を知るための分子パラメーターで分子・周波数ごとに決まる値となる。
 今回用いた\ce{NO}の輝線スペクトルにおけるそれぞれの線スペクトル強度係数については\ref{ch:mm_analysis}章の表\ref{tb:no_spectr_freq}に記載している。
 大気温度については一様に$200\, \mathrm{K}$と仮定し、\ce{NO}が存在する領域においては光学的に薄いと仮定している。
+また、トロムソに設置された観測装置はDSBミクサを用いているため（\ref{sec:obs_location}節の表\ref{tb:spectrometer_spec}）、\ref{ssec:obs_overview}節で述べたように輝線スペクトル強度については実際の観測データから計算したものに2倍した値を用いている。
 誤差については\ref{sec:correction_baselinefitting}節で述べたベースライン近似の際に用いた範囲でのRMS（Root Mean Square）を用いて、式\refeq{eq:derive_columndensity}と同様の方法で求めた。
 式を以下に示す。
 \begin{gather}
     % N_{\mathrm{NO}} = A \times T_{\mathrm{atm}} \times T_{\mathrm{rms}} \\
     N_{\mathrm{NO}} = A \times T_{\mathrm{atm}} \times \int T_{\mathrm{rms}}d\nu \\
     T_{\mathrm{rms}}:\mathrm{RMS[K]} \notag
-\end{gather}
+\end{gather} \par
 % 式の記述は正しい？
 また、柱密度をプロットするにあたって、はじめに柱密度の導出はそれぞれの輝線スペクトルについて行い（式\refeq{eq:derive_columndensity}）、次に用いた輝線スペクトルの柱密度について平均を計算した。
 柱密度の平均については、それぞれの輝線スペクトルの柱密度を導出する際に用いた線スペクトル強度係数によって重み付けをした。
@@ -192,7 +194,7 @@ NOスペクトルデータにおいて、解析に使うことのできない質
     N_{\mathrm{avg}} = \left. \sum_{k} \frac{N_{k}}{\varepsilon_{k}} \middle/ \sum_{k} \frac{1}{\varepsilon_{k}} \right. \\
     N_{\mathrm{avg}}:\ce{NO}の平均柱密度、N_{\mathrm{k}}:一つの輝線スペクトルから導出した柱密度 \notag \\
     \varepsilon_{\mathrm{k}}:一つの輝線スペクトルから導出した柱密度の誤差 \notag
-\end{gather}
+\end{gather} \par
 また、柱密度の誤差についても以下のように同様に重み付けによる平均を計算した。
 \begin{equation}
     \varepsilon_{\mathrm{avg}} = \left( \sum_{k} \frac{1}{\varepsilon_{k}} \right)^{-1}
