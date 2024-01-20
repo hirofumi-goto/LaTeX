@@ -1,2 +1,15 @@
-\chapter{NASA OMNIWeb Data}
+\chapter{OMNI Web Data Set}
 \label{app:omni}
+OMNI Web Data SetはNASAから提供されており、主に磁気圏と電離層における太陽風の影響の調査をサポートすることを目的としたものである~\cite{king2023omni}。
+OMNI Web Data Setの中でも本研究で用いたデータは以下の5つである。
+\begin{enumerate}
+    \item 地球磁場の南北成分（GSM）$[\mathrm{nT}]$
+    \item 太陽風の速さ$[\mathrm{m/s}]$
+    \item プロトン密度$[\mathrm{n/cc}]$
+    \item AE指数$[\mathrm{nT}]$（用いたのはトロムソのみ）
+    \item SYM/H$[\mathrm{nT}]$
+\end{enumerate} \par
+SYM/HはDst指数の1分値に相当するものである~\cite{wdc2009asysym}。
+また、AE指数はサブストームに伴う電流の大きさを表すものであり、高緯度オーロラ帯の12か所磁場変動の最大値と最小値の差をとったものである。
+% SYM/HについてDst指数との関係を述べる。
+% AE指数がない理由を述べる。
