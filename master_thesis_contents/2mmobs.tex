@@ -199,8 +199,8 @@
 \end{gather}
 ここで、$T_\mathrm{sky} = T_\mathrm{hot}$と仮定し式\eqref{eq:opticaldepth_measurement}の2式の差をとって両辺対数をとると
 \begin{equation}
-    \ln \left( T_{obs\_ hot} - T_z \right)  = \ln T_{obs\_ hot} - \tau \sec z
-    % \ln \( T_{obs\_ hot} - T_z \) = \ln T_{obs\_ hot} - \tau \sec z
+    \ln \left( T_\mathrm{obs\_ hot} - T_z \right)  = \ln T_\mathrm{obs\_ hot} - \tau \sec z
+    \label{eq:opticaldepth_plot}
 \end{equation}
 となる。
 この式は$y=ax$のような一次関数になっているため、左辺$\ln \left( T_\mathrm{obs\_ hot} - T_z \right)$を縦軸、$\sec z$を横軸としたプロットを作成すると、図\ref{fig:opticaldepth_slope_tau}のようになることがわかる（プロットデータは観測装置の回転鏡により$z$の値を変えている）。
@@ -254,11 +254,11 @@
 \end{figure}
 まず、ハードウェア的に行われるFRSWについて説明する。
 ある周波数において最初に取得されるデータを図\ref{fig:frsw_process}（a）に示す。
-次に、局部発振器の周波数を$\Delta f$ずらした状態でデータを取得する（図\ref{fig:frsw_process}（b））。
+次に、局部発振器の周波数を$\varDelta f$ずらした状態でデータを取得する（図\ref{fig:frsw_process}（b））。
 これにより、分光計のチャンネル上では、異なるチャンネルに同じ分子からの輝線スペクトルが現れる2つのデータが得られる。
 その次に、解析では、まず（a）から（b）を差し引いたデータを作成する（図\ref{fig:frsw_process}（c））。
 これにより、（a）と（b）に共通に乗っていたオフセット成分が差し引かれる。
-さらに（c）を上下反転して、ずらした周波数$\Delta f$を戻した（d）を作成する。
+さらに（c）を上下反転して、ずらした周波数$\varDelta f$を戻した（d）を作成する。
 この（d）と（c）のデータを足し合わせて2で割る処理をする（周波数折り返し処理）。
 （a）と（b）で取得された輝線スペクトルのデータは独立なものなので、この処理をすることによって、大気雑音や受信機雑音などのランダムなノイズ成分が低減し、S/N比としては$\sqrt{2}$倍向上する（図\ref{fig:frsw_process}（e））。
 そして、最終的に得られる分子スペクトルとしては、図\ref{fig:frsw_process}（e）中の黄色で囲まれたところのみを使う。
