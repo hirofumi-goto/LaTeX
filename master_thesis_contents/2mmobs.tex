@@ -11,7 +11,7 @@
 \label{ssec:obs_overview}
 最初に、ミリ波分光法を用いた大気分子の観測手法について述べる。
 私たちのグループでは、観測の手法としてミリ波電波分光法による地上観測によって大気分子を観測している~\cite{mizuno2002millimeter}。
-その模式図を図\ref{fig:spectrometer_schema}に示す。
+その模式図を図~\ref{fig:spectrometer_schema}に示す。
 \begin{figure}[htbp]
     \centering
     \includegraphics{master_thesis_contents/master_thesis_fig/spectrometer_schema.pdf}
@@ -19,12 +19,12 @@
     \label{fig:spectrometer_schema}
 \end{figure}
 ミリ波電波分光法では、観測対象の大気分子の回転遷移によって放射されるミリ波帯電波を受信し分光することで、電波放射スペクトルを観測している。
-しかし、図\ref{fig:spectrometer_schema}に示す通り、電波を地上で観測すると、経路上にある下層大気の水蒸気や雲の影響を考慮する必要があることに注意しなければならない。
+しかし、図~\ref{fig:spectrometer_schema}に示す通り、電波を地上で観測すると、経路上にある下層大気の水蒸気や雲の影響を考慮する必要があることに注意しなければならない。
 この影響は、下層大気の光学的厚みを実際に計測することで、補正ができる。
 光学的厚みの測定方法の詳細は\ref{ssec:obs_opticaldepth}節にて述べる。\par
 
-ミリ波分光計を用いた大気観測装置の構成を図\ref{fig:mm_component}に示し、例として南極の昭和基地に設置された大気観測装置の様子を図\ref{fig:mmobs_spectrometer_syowa}に示す。
-図\ref{fig:mm_component}に示すように、観測装置は主に以下の4つの部分に分かれている。
+ミリ波分光計を用いた大気観測装置の構成を図~\ref{fig:mm_component}に示し、例として南極の昭和基地に設置された大気観測装置の様子を図~\ref{fig:mmobs_spectrometer_syowa}に示す。
+図~\ref{fig:mm_component}に示すように、観測装置は主に以下の4つの部分に分かれている。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/mm_component.pdf}
@@ -83,7 +83,7 @@
 \subsection{電波強度のキャリブレーション}
 \label{ssec:obs_calibration}
 次に、観測された電波に対して黒体を用いて行う強度キャリブレーションの手法について述べる。
-一般的に電波領域の研究では、大気分子からの電波放射強度は、それと同等のエネルギーを放射する黒体の温度に換算して表す。ここでミリ波領域（周波数$30-300\, \mathrm{GHz}$）においては、図\ref{fig:planck}よりRayleigh-Jeans近似が成り立つので、ほぼPlanckの放射式は以下のように表すことができる。
+一般的に電波領域の研究では、大気分子からの電波放射強度は、それと同等のエネルギーを放射する黒体の温度に換算して表す。ここでミリ波領域（周波数$30-300\, \mathrm{GHz}$）においては、図~\ref{fig:planck}よりRayleigh-Jeans近似が成り立つので、ほぼPlanckの放射式は以下のように表すことができる。
 \begin{gather}
     I_{\nu}(T)
     = \frac{2\mathrm{h}\nu^3}{c^2} \cdot \cfrac{1}{\exp \Biggl( \cfrac{\mathrm{h}\nu}{\mathrm{k}T}-1\Biggr) }
@@ -106,18 +106,18 @@
     \caption{電波強度のキャリブレーションの様子（~\cite{ito2017master}より引用）}
     \label{fig:calibration}
 \end{figure}
-これを図示すると、図\ref{fig:calibration}に示す直線が電波強度と黒体温度の対応を表す。
+これを図示すると、図~\ref{fig:calibration}に示す直線が電波強度と黒体温度の対応を表す。
 また、この直線の$y$切片の値は受信機雑音の強度を表し、$x$切片の値の絶対値はこの強度を黒体温度で表した値となる。
 
 
 \subsection{光学的厚み}
 \label{ssec:obs_opticaldepth}
 次に、受信された電波強度について、下層大気の影響の補正に用いる光学的厚みについて述べる。
-図\ref{fig:spectrometer_schema}に示したように、成層圏よりも高い高度にある分子からの電波を地上で観測する際には、下層大気（主に対流圏）を通過してきた電波を観測することになる。
+図~\ref{fig:spectrometer_schema}に示したように、成層圏よりも高い高度にある分子からの電波を地上で観測する際には、下層大気（主に対流圏）を通過してきた電波を観測することになる。
 そのため、下層大気に含まれる水蒸気や雲の放射および吸収の影響を考慮に入れる必要があり、光学的厚みという概念を導入する。\par
 
 まず、光学的厚みとは何かということと、それがどのように電波強度に影響するかを述べる。
-図\ref{fig:depth_dx}のように、厚さ$dx$の大気層があり、図の左から強度$T$の電波が入射したときを考える。
+図~\ref{fig:depth_dx}のように、厚さ$dx$の大気層があり、図の左から強度$T$の電波が入射したときを考える。
 大気層で吸収および放射の影響を受けて、図の右に出てくる電波強度は$T+dT$で表される。
 \begin{figure}[htbp]
     \centering
@@ -126,24 +126,24 @@
     \label{fig:depth_dx}
 \end{figure}
 このとき、吸収と自己放射を表す式は、$\kappa$を吸収係数、$j$を放射係数とすると
-\begin{equation}
+\begin{gather}
     dT = -\kappa T dx + j dx
     \label{eq:absorption_selfemission_1}
-\end{equation}
+\end{gather}
 となる。
 次に光学的厚み（一般的に$\tau$で表す）を導入する。$\tau$は、
-\begin{equation}
+\begin{gather}
     \tau = \int_{0}^{x} \kappa dx' + j dx
-\end{equation}
+\end{gather}
 もしくは
-\begin{equation}
+\begin{gather}
     d\tau = \kappa dx
-\end{equation}
+\end{gather}
 と表され、これを用いて式\eqref{eq:absorption_selfemission_1}を書き換えると
-\begin{equation}
+\begin{gather}
     \frac{dT}{d\tau} = -T + \frac{j}{\kappa}
     \label{eq:absorption_selfemission_4}
-\end{equation}
+\end{gather}
 となる。
 次に、式\eqref{eq:absorption_selfemission_4}の第2項において、熱平衡状態ではキルヒホッフの法則より
 \begin{gather}
@@ -163,7 +163,7 @@
 \end{gather}
 となる。
 これは、第1項が下層大気による電波吸収を考慮した（より上層にある）観測対象の分子からの電波強度、第2項は下層大気の熱放射を表している。
-実際の観測で得られるスペクトルデータとしては第1項が図\ref{fig:spectum_thermalnoise}における橙色の成分、第2項が青色の成分に対応する（実際には青色の成分に第3項の受信機雑音も含まれるが、その詳細は\ref{ssec:obs_frsw}節にて述べる）。
+実際の観測で得られるスペクトルデータとしては第1項が図~\ref{fig:spectum_thermalnoise}における橙色の成分、第2項が青色の成分に対応する（実際には青色の成分に第3項の受信機雑音も含まれるが、その詳細は\ref{ssec:obs_frsw}節にて述べる）。
 \begin{figure}[htbp]
     \centering
     \includegraphics{master_thesis_contents/master_thesis_fig/spectum_thermalnoise.pdf}
@@ -174,7 +174,7 @@
 
 次に、光学的厚みをどのように測定するかについて述べる。
 光学的厚みの測定は観測の間に定期的に行われており、たとえば昭和基地の観測装置ではおよそ12-13分おきに測定されている。
-% 光学的厚みの測定は図\ref{fig:opticaldepth_measurement}のように観測の間に定期的に行われており、
+% 光学的厚みの測定は図~\ref{fig:opticaldepth_measurement}のように観測の間に定期的に行われており、
 % たとえばトロムソの観測装置ではおよそ5分おきに測定されている。
 % \begin{figure}[htbp]
 %     \centering
@@ -198,12 +198,12 @@
     T_\mathrm{obs\_ hot} :常温黒体を見たときの輝度温度 \\ \notag
 \end{gather}
 ここで、$T_\mathrm{sky} = T_\mathrm{hot}$と仮定し式\eqref{eq:opticaldepth_measurement}の2式の差をとって両辺対数をとると
-\begin{equation}
+\begin{gather}
     \ln \left( T_\mathrm{obs\_ hot} - T_z \right)  = \ln T_\mathrm{obs\_ hot} - \tau \sec z
     \label{eq:opticaldepth_plot}
-\end{equation}
+\end{gather}
 となる。
-この式は$y=ax$のような一次関数になっているため、左辺$\ln \left( T_\mathrm{obs\_ hot} - T_z \right)$を縦軸、$\sec z$を横軸としたプロットを作成すると、図\ref{fig:opticaldepth_slope_tau}のようになることがわかる（プロットデータは観測装置の回転鏡により$z$の値を変えている）。
+この式は$y=ax$のような一次関数になっているため、左辺$\ln \left( T_\mathrm{obs\_ hot} - T_z \right)$を縦軸、$\sec z$を横軸としたプロットを作成すると、図~\ref{fig:opticaldepth_slope_tau}のようになることがわかる（プロットデータは観測装置の回転鏡により$z$の値を変えている）。
 これらのプロットに対して一次の近似直線を引いたとき、その直線の傾きが光学的厚みに負の符号をつけたものと対応する。
 以上より、光学的厚みを観測的に求めることができる。\par
 \begin{figure}[htbp]
@@ -234,7 +234,7 @@
 \label{ssec:obs_frsw}
 観測されたスペクトルデータから対象の分子スペクトルのみを得るためには、大気の熱放射と観測装置の受信機雑音によるオフセット成分を除去する必要がある。
 このオフセットを除去するにはいくつかの手法が行われているが、本研究で使用する観測装置では、周波数スイッチング（以後FRSWとする）という手法を用いる。
-% （図\ref{fig:frsw_schema}）
+% （図~\ref{fig:frsw_schema}）
 % \begin{figure}[htbp]
 %     \centering
 %     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/frsw_schema.pdf}
@@ -253,15 +253,15 @@
     \label{fig:frsw_process}
 \end{figure}
 まず、ハードウェア的に行われるFRSWについて説明する。
-ある周波数において最初に取得されるデータを図\ref{fig:frsw_process}（a）に示す。
-次に、局部発振器の周波数を$\varDelta f$ずらした状態でデータを取得する（図\ref{fig:frsw_process}（b））。
+ある周波数において最初に取得されるデータを図~\ref{fig:frsw_process}（a）に示す。
+次に、局部発振器の周波数を$\varDelta f$ずらした状態でデータを取得する（図~\ref{fig:frsw_process}（b））。
 これにより、分光計のチャンネル上では、異なるチャンネルに同じ分子からの輝線スペクトルが現れる2つのデータが得られる。
-その次に、解析では、まず（a）から（b）を差し引いたデータを作成する（図\ref{fig:frsw_process}（c））。
+その次に、解析では、まず（a）から（b）を差し引いたデータを作成する（図~\ref{fig:frsw_process}（c））。
 これにより、（a）と（b）に共通に乗っていたオフセット成分が差し引かれる。
 さらに（c）を上下反転して、ずらした周波数$\varDelta f$を戻した（d）を作成する。
 この（d）と（c）のデータを足し合わせて2で割る処理をする（周波数折り返し処理）。
-（a）と（b）で取得された輝線スペクトルのデータは独立なものなので、この処理をすることによって、大気雑音や受信機雑音などのランダムなノイズ成分が低減し、S/N比としては$\sqrt{2}$倍向上する（図\ref{fig:frsw_process}（e））。
-そして、最終的に得られる分子スペクトルとしては、図\ref{fig:frsw_process}（e）中の黄色で囲まれたところのみを使う。
+（a）と（b）で取得された輝線スペクトルのデータは独立なものなので、この処理をすることによって、大気雑音や受信機雑音などのランダムなノイズ成分が低減し、S/N比としては$\sqrt{2}$倍向上する（図~\ref{fig:frsw_process}（e））。
+そして、最終的に得られる分子スペクトルとしては、図~\ref{fig:frsw_process}（e）中の黄色で囲まれたところのみを使う。
 \clearpage
 
 
@@ -332,7 +332,7 @@
 \ce{NO}分子の輝線スペクトルの本数を増やすことができるのは、\ce{NO}分子輝線が超微細構造と呼ばれる、分子が持つエネルギー準位が非常に小さいエネルギー差で存在する構造を持っているため、複数の輝線スペクトルが存在することに起因する。
 トロムソに設置されている分光計では、超微細構造線のうち2本の輝線スペクトルのみの観測であったが、昭和基地の新たな分光計では合計6本の輝線スペクトルを観測することができるようになった。\par
 
-昭和基地で現在同時観測されている分子スペクトルの例として、2022年9月4〜7日の4日分の積分データを図\ref{fig:NO_spectr}に示す。
+昭和基地で現在同時観測されている分子スペクトルの例として、2022年9月4〜7日の4日分の積分データを図~\ref{fig:NO_spectr}に示す。
 黒枠が6本の\ce{NO}スペクトルを表し、そのうち赤枠で示したもののみがトロムソで観測されている2本のスペクトルである。
 それぞれの輝線スペクトルの静止周波数と遷移については、表\ref{tb:no_spectr_freq}に示す。
 なお、\ce{NO}スペクトルの静止周波数および線スペクトル強度係数は、NASAが提供しているJPL Catalog\footnote{\url{https://spec.jpl.nasa.gov/ftp/pub/catalog/catform.html}}より調べた。
@@ -361,5 +361,5 @@
     \end{tabular}
     }
 \end{table}
-図\ref{fig:NO_spectr}を見ると、\ce{O3}スペクトルと比較して、\ce{NO}スペクトルはとても微弱である。
+図~\ref{fig:NO_spectr}を見ると、\ce{O3}スペクトルと比較して、\ce{NO}スペクトルはとても微弱である。
 そのため、取得された全スペクトルデータのうち、どのデータが解析に用いることができるかということをあらかじめスクリーニングして抽出することが重要となる。

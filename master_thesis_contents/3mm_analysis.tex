@@ -4,7 +4,7 @@
 そのため、それぞれ観測装置の立ち上げ後に行われたテスト観測のデータを1つずつ精査した。
 本章では、その手法と結果について述べる。\par
 
-\ref{ssec:obs_syowa}節の図\ref{fig:NO_spectr}で示したように、\ce{NO}の輝線スペクトルはとても微弱である。
+\ref{ssec:obs_syowa}節の図~\ref{fig:NO_spectr}で示したように、\ce{NO}の輝線スペクトルはとても微弱である。
 そのため、物理量の算出に十分なS/N比となるようにデータを処理し、輝線スペクトルを得る必要がある。
 そこで今回は、全体のデータから設定した特定の条件をクリアした解析に用いることができるデータのみを選別する「スクリーニング」と、下層大気や観測装置の特性に起因する受信電波強度の補正を行った。
 ミリ波分光計の観測システムは市販されているものではないため、ほぼ全てのハードウェア・ソフトウェアは自作となっており、今回用いるスクリーニングおよび電波強度の補正に必要なプログラムは自ら作成した。\par
@@ -36,7 +36,7 @@
 光学的厚みの測定を行っている間に大気分子の観測を行っているため、光学的厚みは大気分子の観測を行っている間、安定しているという前提の上で光学的厚みによる電波強度の補正を行っている。
 従って、光学的厚みの測定データは観測データに対して充分に安定していなければならない。\par
 
-図\ref{fig:optical_depth_tromsoe}に示しているデータは、トロムソの観測装置立ち上げ後に行われたテスト観測の期間に測定された光学的厚みの時間変化を表したものである。
+図~\ref{fig:optical_depth_tromsoe}に示しているデータは、トロムソの観測装置立ち上げ後に行われたテスト観測の期間に測定された光学的厚みの時間変化を表したものである。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/optical_depth_tromsoe.pdf}
@@ -55,7 +55,7 @@
 スクリーニング方法としては、まず1日ごとにデータを区切り
 % （一日の間で測定される光学的厚みのデータ数は＊＊個程度になる）
 、それぞれの日でこれらの分散を計算し、その分散が$0.005$以下の値の日をとるデータを使用することとした。
-分散の閾値を0.005としたのは、図\ref{fig:optical_depth_tromsoe}のデータを目視し、値が安定していると判断した2019年1月23日〜2019年2月4日の分散がいずれも0.005以下であったため、このように設定した~\cite{goto2021bachelor}。
+分散の閾値を0.005としたのは、図~\ref{fig:optical_depth_tromsoe}のデータを目視し、値が安定していると判断した2019年1月23日〜2019年2月4日の分散がいずれも0.005以下であったため、このように設定した~\cite{goto2021bachelor}。
 この条件を設定することで、光学的厚みの変動が大きい、すなわち下層大気の影響が過度に大きく、データの質が安定しない時間帯を除去することができる。
 南極・昭和基地の解析においても同条件でスクリーニングを行った。
 % この章は、既に本研究の結果を示す章なので、南極のデータも具体的に示す。
@@ -65,11 +65,11 @@
 \label{sec:screening_spectralnoise}
 次に、\ref{sec:screening_opticaldepth}節のスクリーニングで残った\ce{NO}スペクトルの観測データにおいて、解析に使うことのできない質の悪いデータをスクリーニングすることを考える。
 トロムソの観測期間の全取得データを精査した結果、スペクトルデータに含まれる顕著なノイズ成分というのは、周波数的に非常に狭く強度の強いスパイク状のノイズと、全体に渡ってランダムな強いノイズの2種類があることがわかった~\cite{goto2021bachelor}。
-そこで、これらのスパイク状のノイズと全体的なノイズをそれぞれ自動的に判別する条件を決めることで、図\ref{fig:raw_spectrum}(a)のような質の良いデータのみを抽出することを目指す。\par
+そこで、これらのスパイク状のノイズと全体的なノイズをそれぞれ自動的に判別する条件を決めることで、図~\ref{fig:raw_spectrum}(a)のような質の良いデータのみを抽出することを目指す。\par
 
 まず、NOスペクトルが存在する周波数（$250.435-250.817\ \mathrm{GHz}$）を含む分光計の$5000-10000$チャンネルの範囲のデータに対し、二次曲線をフィッティングした。
 この周波数帯にランダムノイズがどれだけ含まれているか調べるために、この近似値に対する測定値の二乗平均誤差を計算する。
-ここでは$5000-10000$チャンネルにおいてスペクトルデータの典型的なベースラインの形状が二次関数的であったため、二次近似を用いることにした（図\ref{fig:raw_spectrum}(a)の赤線）。
+ここでは$5000-10000$チャンネルにおいてスペクトルデータの典型的なベースラインの形状が二次関数的であったため、二次近似を用いることにした（図~\ref{fig:raw_spectrum}(a)の赤線）。
 \begin{figure}[htbp]
     \centering
     \begin{minipage}{0.33\linewidth}
@@ -88,7 +88,7 @@
     \item 2乗平均誤差の整数丸め値が0ではない
     \item $5000-10000$チャンネルで強度の絶対値が$5\, \mathrm{K}$以上の値を含む
 \end{itemize} \par
-1つ目の条件は、全体的にノイズを含むデータ（たとえば図\ref{fig:raw_spectrum}(b)）を判別・除去することを意図しており、2つ目の条件はスパイク状のノイズを含むデータ（たとえば図\ref{fig:raw_spectrum}(c)）を除去することを意図している。
+1つ目の条件は、全体的にノイズを含むデータ（たとえば図~\ref{fig:raw_spectrum}(b)）を判別・除去することを意図しており、2つ目の条件はスパイク状のノイズを含むデータ（たとえば図~\ref{fig:raw_spectrum}(c)）を除去することを意図している。
 設定したスクリーニング条件が妥当かどうかの検証は、既に卒業研究~\cite{goto2021bachelor}にて行っている。
 卒業結果では、明らかにノイズを含むデータについては意図した通りにスクリーニングをすることができており、質のよいデータのみを選ぶことに成功したという結論を得ている。
 % このあとに節を追加し、南極昭和基地についても結果を述べる。
@@ -96,8 +96,8 @@
 
 \section{トロムソにおける光学的厚みの測定データの異常値の検討}
 \label{sec:correction_opticaldepth}
-\ref{sec:screening_opticaldepth}節に述べたように、光学的厚みが短時間で変動している不安定なデータを除去したことによって、トロムソの観測データについては図\ref{fig:optical_depth_minus}のように期間A（2019年1月23日〜2019年2月4日）と期間B（2019年2月17日〜2019年2月20日）が残った。
-しかし、期間Aにおいて光学的厚みが$-0.2$程度と負の値となっていることがわかった（図\ref{fig:optical_depth_minus}の赤丸）。
+\ref{sec:screening_opticaldepth}節に述べたように、光学的厚みが短時間で変動している不安定なデータを除去したことによって、トロムソの観測データについては図~\ref{fig:optical_depth_minus}のように期間A（2019年1月23日〜2019年2月4日）と期間B（2019年2月17日〜2019年2月20日）が残った。
+しかし、期間Aにおいて光学的厚みが$-0.2$程度と負の値となっていることがわかった（図~\ref{fig:optical_depth_minus}の赤丸）。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/optical_depth_minus.pdf}
@@ -107,7 +107,7 @@
 \ref{ch:mm_obs}章で述べた光学的厚みの算出方法のことを考えると、この値が負の値を取ることはない。
 そこでこの原因を調べたところ、光学的厚みを算出する際に使用する式\eqref{eq:opticaldepth_plot}におけるプロットデータにおいて、各観測天頂角$z$における$\sec z$に対する$\ln \left( T_{obs\_ hot} - T_z \right)$が、もっとも観測天頂角が小さい（$\sec z$が1番小さい）ところで異常に低くなっていた。
 これによってフィッティングされた近似直線の傾きが正になってしまうことで、光学的厚みが負の値として計算されていることが分かった~\cite{goto2021bachelor}。
-その模式図を図\ref{fig:optical_depth_slope_minus}、実際の測定データ例を図\ref{fig:optical_depth_measurement_good_bad}に示す。\par
+その模式図を図~\ref{fig:optical_depth_slope_minus}、実際の測定データ例を図~\ref{fig:optical_depth_measurement_good_bad}に示す。\par
 
 \begin{figure}[htbp]
     \centering
@@ -130,7 +130,7 @@
     \caption{(a) 望ましいプロットデータの一例（2019年2月17日5時51分頃測定）。(b) プロットデータが落ち込んだ実際のデータの一例。（2019年1月23日0時5分頃測定）。黒線は近似直線を表す。~\cite{goto2021bachelor}より引用。}
     \label{fig:optical_depth_measurement_good_bad}
 \end{figure}
-さらに、その天頂角が最も小さいデータの落ち込みの原因を調べたところ、この光学的厚みの値が負の値となっている期間の終わりごろに、光学的厚みの測定で用いる観測方向（\ref{ssec:obs_opticaldepth}節の表\ref{tb:secz_zdeg}）にあるコンテナー側面の観測窓の上部に氷柱ができているのを見つけたという報告があり（図\ref{fig:icicles}）、それが時期的に一致していることが分かった~\cite{goto2021bachelor}。
+さらに、その天頂角が最も小さいデータの落ち込みの原因を調べたところ、この光学的厚みの値が負の値となっている期間の終わりごろに、光学的厚みの測定で用いる観測方向（\ref{ssec:obs_opticaldepth}節の表\ref{tb:secz_zdeg}）にあるコンテナー側面の観測窓の上部に氷柱ができているのを見つけたという報告があり（図~\ref{fig:icicles}）、それが時期的に一致していることが分かった~\cite{goto2021bachelor}。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/icicles.pdf}
@@ -151,14 +151,14 @@
 本研究では、\ce{NO}スペクトルから外れた両端におけるデータがバックグラウンドの成分を表していると考え、これをベースラインとして近似から求め、元のスペクトルから差し引くことにした。
 これにより、FRSWで除去しきれなかったオフセット成分や周波数特性のうねりなどが除去され、観測対象の\ce{NO}スペクトルのみを取り出すことができる。\par
 
-ベースラインの補正の模式図を図\ref{fig:baseline_correct_schema}に示す。
+ベースラインの補正の模式図を図~\ref{fig:baseline_correct_schema}に示す。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/baseline_correct_schema.pdf}
     \caption{ベースライン近似を用いたベースラインの補正}
     \label{fig:baseline_correct_schema}
 \end{figure}
-ベースラインの近似に用いるデータは、図\ref{fig:baseline_range}の赤色で示した\ce{NO}スペクトルの両端のそれぞれ$5\, \mathrm{MHz}$の範囲を使用した。
+ベースラインの近似に用いるデータは、図~\ref{fig:baseline_range}の赤色で示した\ce{NO}スペクトルの両端のそれぞれ$5\, \mathrm{MHz}$の範囲を使用した。
 この範囲は、対象とするNOの放射スペクトル成分が含まれないと考えられる。
 \begin{figure}[htbp]
     \centering
@@ -166,7 +166,7 @@
     \caption{ベースラインを補正する元となる周波数の範囲（赤色で表示。青色は検出するスペクトルの幅を示している。例としてトロムソで用いた2本の輝線スペクトルの場合を示した。）}
     \label{fig:baseline_range}
 \end{figure}
-スペクトルデータを見ると、この周波数帯では典型的なベースラインの形状が、図\ref{fig:baseline_curve}に示す赤い曲線のような三次関数的な形であったので、ここでは三次関数で近似を行うことにした。
+スペクトルデータを見ると、この周波数帯では典型的なベースラインの形状が、図~\ref{fig:baseline_curve}に示す赤い曲線のような三次関数的な形であったので、ここでは三次関数で近似を行うことにした。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{master_thesis_contents/master_thesis_fig/baseline_curve.pdf}
@@ -174,7 +174,7 @@
     \label{fig:baseline_curve}
 \end{figure}
 また、\ce{NO}の各スペクトル幅は$1\, \mathrm{MHz}$と仮定した。
-このように仮定したのは対象の時期の日ごとのデータにおいて、放射スペクトルの幅の大きさがどの日のデータにおいてもおよそ$1\, \mathrm{MHz}$であることが確認できたためである（図\ref{fig:no_spectr_exp}にあるデータの一例においても、\ce{NO}スペクトル根本での幅がおよそ$1\, \mathrm{MHz}$であることが確認できる）。
+このように仮定したのは対象の時期の日ごとのデータにおいて、放射スペクトルの幅の大きさがどの日のデータにおいてもおよそ$1\, \mathrm{MHz}$であることが確認できたためである（図~\ref{fig:no_spectr_exp}にあるデータの一例においても、\ce{NO}スペクトル根本での幅がおよそ$1\, \mathrm{MHz}$であることが確認できる）。
 % このあと、南極のデータについても説明
 \begin{figure}[htbp]
     \centering
@@ -194,9 +194,9 @@
 柱密度の導出方法は、先行研究~\cite{isono2014ground}を参考にして行った。
 導出に用いた式は以下である。
 \begin{gather}
-    N_{\mathrm{NO}} = A \times T_{\mathrm{atm}} \times \int T_{\mathrm{NO}}d\nu
+    N_{\mathrm{NO}} = \mathrm{A} \times T_{\mathrm{atm}} \times \int T_{\mathrm{NO}}d\nu
     \label{eq:derive_columndensity} \\
-    N_{\mathrm{NO}}:\ce{NO}の柱密度[\mathrm{cm^{-2}}]、A:線スペクトル強度係数[\mathrm{K^{-2}} \cdot \mathrm{MHz^{-1}} \cdot \mathrm{cm^{-2}}] \notag \\
+    N_{\mathrm{NO}}:\ce{NO}の柱密度[\mathrm{cm^{-2}}]、\mathrm{A}:線スペクトル強度係数[\mathrm{K^{-2}} \cdot \mathrm{MHz^{-1}} \cdot \mathrm{cm^{-2}}] \notag \\
     T_{\mathrm{atm}}:大気温度[\mathrm{K}]、\int T_{\mathrm{NO}}d\nu:\ce{NO}のスペクトル積分強度 \notag
 \end{gather} \par
 線スペクトル強度係数は、分子・周波数ごとに決まる値となる。
@@ -209,7 +209,7 @@
 柱密度の誤差は、\ref{sec:correction_baselinefitting}節で述べたベースライン近似の際に用いたチャンネル範囲におけるRMS（Root Mean Square）を用いて、式\eqref{eq:derive_columndensity}と同様の方法で求めた。
 式を以下に示す。
 \begin{gather}
-    \varepsilon = \pm A \times T_{\mathrm{atm}} \times \int T_{\mathrm{rms}}d\nu \\
+    \varepsilon = \pm \mathrm{A} \times T_{\mathrm{atm}} \times \int T_{\mathrm{rms}}d\nu \\
     T_{\mathrm{rms}}:\mathrm{RMS[K]} \notag
 \end{gather} \par
 次にそれぞれの輝線スペクトルにおいて導出した柱密度についての平均を計算した。
@@ -221,6 +221,6 @@
     \varepsilon_{\mathrm{k}}:一つの輝線スペクトルから導出した柱密度の誤差 \notag
 \end{gather} \par
 また、柱密度の誤差についても以下のように同様に重み付けによる平均を計算した。
-\begin{equation}
+\begin{gather}
     \varepsilon_{\mathrm{avg}} = \pm \left( \sum_{k} \frac{1}{\left| \varepsilon_{k}\right|} \right)^{-1}
-\end{equation}
+\end{gather}
