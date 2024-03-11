@@ -1,17 +1,20 @@
-\documentclass[report,dvipdfmx]{jlreq}
+\documentclass[report,dvipdfmx]{jlreq} % platex documentclass
+% \documentclass[report]{jlreq} % lualatex documentclass
 \usepackage{graphicx}
 \usepackage[version=4]{mhchem}
 \usepackage{cite}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{textcomp}
-% \usepackage{caption}
+\usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amssymb}
 \usepackage{url}
 \usepackage{abstract}
-% \usepackage{hyperref}
-% \usepackage{pxjahyper}
+% \usepackage[colorlinks=true,allcolors=blue]{hyperref} % platex documentclass
+\usepackage[hidelinks]{hyperref} % platex documentclass
+\usepackage{pxjahyper} % platex documentclass
+% \usepackage[luatex,hidelinks,pdfencoding=auto]{hyperref}% lualatex documentclass
 
 \includeonly{
     master_thesis_contents/0abstract.tex,
